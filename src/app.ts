@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 
-import { loadApiEndpoints } from "./controllers/api";
+import { routes as loadApiEndpoints } from "./route/routes";
 
 // Create Express server
 const app = express();
@@ -15,6 +15,7 @@ app.use(
   express.static(path.join(__dirname, "../public"), { maxAge: 31557600000 })
 );
 
+// Load routes
 loadApiEndpoints(app);
 
 export default app;
